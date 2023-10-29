@@ -9,7 +9,7 @@ const Footer = () => {
         </a>
         <i className="fa-solid fa-copyright"></i>2023
         <strong>
-          Food<span>Fire</span>
+          Food<span>Junction</span>
         </strong>
       </div>
     );

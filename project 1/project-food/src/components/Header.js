@@ -1,3 +1,4 @@
+import { useState } from "react";
 import foodjunction from "../images/logo.png";
 
 
@@ -10,6 +11,7 @@ const Title = () => (
 
 // Header component for header section: Logo, Nav Items
 const Header = () => {
+  const [btnName,setbtnName] =  useState("Login");
   return (
     <div className="header">
       <Title />
@@ -21,6 +23,9 @@ const Header = () => {
           <li>
             <i className="fa-solid fa-cart-shopping"></i>
           </li>
+          <button className="Login"  onClick={()=>{
+            btnName === "Login" ? setbtnName("Logout") : setbtnName("Login");
+          }}  >{btnName}</button>
         </ul>
       </div>
     </div>

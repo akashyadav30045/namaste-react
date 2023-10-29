@@ -1,6 +1,10 @@
 import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+
+
+// Search Functionality 
 
 function filterData(searchText, restaurants) {
   const filterData = restaurants.filter((restaurant) =>
@@ -15,8 +19,42 @@ const Body = () => {
   // useState: To create a state variable, searchText is local state variable
   const [searchText, setSearchText] = useState("");
   const [restaurants, setRestaurants] = useState(restaurantList);
+  const [Filteredrestaurants, setFilteredRestaurants] = useState();
+  function handleTopRated() {
+  
+    setRestaurants( () => 
+        restaurantList.filter(
+        (res)=> res.data.avgRating> 4
+        )
+    
+
+
+    )
+  }
+  useEffect(()=>{
+    FetchData();
+  },[]);
+  const FetchData = async () => {
+    const data=  await fetch(
+      "https://food-villa-server.vercel.app/api/restaurants?lat=28.4594965&lng=77.0266383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+  const json = await data.json();
+  console.log(json)
+};
+
+  
+  
+  
+  
+  
   return (
     <>
+ <div className="top-rated">
+      <button className="filter-btn" onClick={
+        handleTopRated
+      } >
+        Top Rated Restraunt
+      </button>
+    </div>   
       <div className="search-container">
         <input
           type="text"
