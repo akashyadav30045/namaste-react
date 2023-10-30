@@ -6,6 +6,9 @@ import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
+import About from "./components/About";
+import root from "./index";
+import { Outlet } from "react-router-dom";
 
 
 /* My Food App structure will look like this, 
@@ -31,10 +34,18 @@ const App = () => {
   return (
     <React.Fragment>
       <Header />
-      <Body />
-      <Footer />
+      <Outlet/>
+      {/* <Footer /> */}
+      
     </React.Fragment>
   );
 };
+
+// const Router = () => {
+  
+//   < RouterProvider router={Approuter} />
+// }
+
+
 
 export default App;

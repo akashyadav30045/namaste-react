@@ -1,6 +1,6 @@
 import { useState } from "react";
 import foodjunction from "../images/logo.png";
-
+import { Link } from "react-router-dom";
 
 // Title component for display logo
 const Title = () => (
@@ -17,9 +17,15 @@ const Header = () => {
       <Title />
       <div className="nav-items">
         <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Contact</li>
+          <li>
+            <Link to="/Home" >Home</Link>
+          </li>
+          <li>
+          <Link to="/About" >About</Link>
+          </li>
+          <li>
+          <Link to="/Contact" >Contact Us</Link>
+          </li>
           <li>
             <i className="fa-solid fa-cart-shopping"></i>
           </li>

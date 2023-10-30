@@ -19,7 +19,8 @@ const Body = () => {
   // useState: To create a state variable, searchText is local state variable
   const [searchText, setSearchText] = useState("");
   const [restaurants, setRestaurants] = useState(restaurantList);
-  const [Filteredrestaurants, setFilteredRestaurants] = useState();
+  const [Filteredrestaurants, setFilteredRestaurants] = useState([]);
+  
   function handleTopRated() {
   
     setRestaurants( () => 
@@ -36,7 +37,7 @@ const Body = () => {
   },[]);
   const FetchData = async () => {
     const data=  await fetch(
-      "https://food-villa-server.vercel.app/api/restaurants?lat=28.4594965&lng=77.0266383&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6498855&lng=77.4831032&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
   const json = await data.json();
   console.log(json)
 };

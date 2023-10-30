@@ -1,3 +1,14 @@
-filter-btn{
-  padding: 10px;
-}
+.shimmer-container{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  justify-content: space-around;
+  
+  }
+  .shimmer-cards{
+      width: 200px;
+      background-color: rgb(232, 232, 232);
+      height: 400px;
+      margin: 1rem;
+      padding: 0.5rem;
+  }
