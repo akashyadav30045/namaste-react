@@ -69,3 +69,23 @@ now import the index js file to app js
 # Now Creating Info for cards on click.
 
 
+useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const response = await fetch(
+      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.1766701&lng=78.00807449999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+    );
+    const data = await response.json();
+    const restaurantList =
+      data?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
+        ?.restaurants;
+    console.log(restaurantList, data);
+    setValue((preValue) => ({
+      ...preValue,
+      data: restaurantList,
+      savedData: restaurantList,
+      loading: false,
+    }));
+  };

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import foodjunction from "../images/logo.png";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "./useOnlineStatus";
 
 // Title component for display logo
 const Title = () => (
@@ -17,6 +18,9 @@ const Header = () => {
       <Title />
       <div className="nav-items">
         <ul>
+          <li>
+            Online Status : {useOnlineStatus ? "ok" : "no"}
+          </li>
           <li>
             <Link to="/Home" >Home</Link>
           </li>

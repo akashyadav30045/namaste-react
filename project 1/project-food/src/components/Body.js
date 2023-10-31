@@ -1,7 +1,7 @@
 import { restaurantList } from "../constants";
 import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
-
+import useOnlineStatus from "./useOnlineStatus";
 
 
 // Search Functionality 
@@ -19,7 +19,7 @@ const Body = () => {
   // useState: To create a state variable, searchText is local state variable
   const [searchText, setSearchText] = useState("");
   const [restaurants, setRestaurants] = useState(restaurantList);
-  const [Filteredrestaurants, setFilteredRestaurants] = useState([]);
+  const [Filteredrestaurants, setFilteredRestaurants] = useState();
   
   function handleTopRated() {
   
@@ -32,15 +32,15 @@ const Body = () => {
 
     )
   }
-  useEffect(()=>{
-    FetchData();
-  },[]);
-  const FetchData = async () => {
-    const data=  await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6498855&lng=77.4831032&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
-  const json = await data.json();
-  console.log(json)
-};
+//   useEffect(()=>{
+//     FetchData();
+//   },[]);
+//   const FetchData = async () => {
+//     const data=  await fetch(
+//       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=27.1766701&lng=78.00807449999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+//   const json = await data.json();
+//   console.log(json)
+// };
 
   
   
